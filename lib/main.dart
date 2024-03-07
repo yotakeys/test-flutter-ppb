@@ -12,6 +12,7 @@ class MainApp extends StatefulWidget {
 }
 
 class MainAppState extends State<MainApp> {
+  int _selectedIndex = 0;
   int counter = 0;
 
   void incrementCounter() {
@@ -64,7 +65,13 @@ class MainAppState extends State<MainApp> {
               label: 'Chat',
             ),
           ],
+          currentIndex: _selectedIndex,
           selectedItemColor: Colors.blue[600],
+          onTap: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue[600],
